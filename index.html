@@ -324,7 +324,7 @@
   let chartInstance = null;
 
   const currencyLocales = {
-    INR: 'en-IN', USD: 'en-US', GBP: 'en-GB', EUR: 'de-DE', AUD: 'en-AU'
+    INR: 'en-IN', USD: 'en-US', GBP: 'en-US', EUR: 'en-US', AUD: 'en-US'
   };
   const currencySymbols = { INR: '₹', USD: '$', GBP: '£', EUR: '€', AUD: 'A$' };
 
@@ -334,10 +334,12 @@
   function isINR()       { return getCurrency() === 'INR'; }
 
   function formatCurrencyInput(el) {
-    const raw = el.value.replace(/,/g, '').replace(/[^0-9]/g, '');
+    // Strip all non-digit characters (handles both comma and dot separators)
+    const raw = el.value.replace(/[^0-9]/g, '');
     if (!raw) { el.value = ''; return; }
     const num = parseInt(raw, 10);
     if (isNaN(num)) { el.value = ''; return; }
+    // Preserve cursor-friendly formatting
     el.value = num.toLocaleString(getLocale());
     if (el.id === 'monthly') document.getElementById('err-monthly').style.display = 'none';
   }
@@ -353,7 +355,9 @@
   }
 
   function parseInput(id) {
-    return parseFloat(document.getElementById(id).value.replace(/,/g, '')) || 0;
+    // Remove all formatting characters (commas, dots used as thousand separators)
+    const raw = document.getElementById(id).value.replace(/[^0-9]/g, '');
+    return parseFloat(raw) || 0;
   }
 
   function fmt(n) {
@@ -516,7 +520,3 @@
     ['goal-amount','goal-years'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('goal-rate-input').value       = 12;
     document.getElementById('goal-results').style.display = 'none';
-  }
-
-  // Init defaults
-  document.getElementById('rate').value   = 12;
