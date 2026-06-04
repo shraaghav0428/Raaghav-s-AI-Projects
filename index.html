@@ -113,7 +113,7 @@
     header h1 { font-size: 20px; }
     .container { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
     .goal-card { grid-column: 1; }
-    .goal-inputs { grid-template-columns: 1fr 1fr; }
+    .goal-inputs { grid-template-columns: 1fr !important; }
     .goal-results { grid-template-columns: 1fr 1fr; }
     .card { padding: 20px; }
     .goal-card { padding: 20px; }
@@ -124,11 +124,15 @@
     .container { padding: 12px; gap: 12px; }
     .card { padding: 16px; }
     .goal-card { padding: 16px; }
-    .goal-inputs { grid-template-columns: 1fr; }
+    .goal-inputs { grid-template-columns: 1fr !important; }
     .goal-results { grid-template-columns: 1fr 1fr; }
-    .btn-row { flex-direction: column; }
-    .btn-clear { width: 100%; }
-    .btn-calc { height: 56px; font-size: 16px; }
+    input[type="text"], input[type="number"] { font-size: 16px; }
+    .input-row { height: auto; min-height: 50px; }
+    .input-row .prefix, .input-row .suffix { height: 50px; }
+    input[type="text"], input[type="number"], select { height: 50px; }
+    .btn-row { flex-direction: column; gap: 10px; }
+    .btn-calc { height: 52px; font-size: 15px; width: 100%; }
+    .btn-clear { width: 100%; height: 44px; font-size: 13px; }
     .currency-select-wrap { flex-direction: column; align-items: flex-start; }
     .currency-select-wrap select { width: 100%; }
     .total-row-value { font-size: 22px; }
@@ -516,7 +520,3 @@
 
   // Init defaults
   document.getElementById('rate').value   = 12;
-  document.getElementById('tenure').value = 10;
-</script>
-</body>
-</html>
