@@ -128,6 +128,7 @@
     .goal-results { grid-template-columns: 1fr 1fr; }
     .btn-row { flex-direction: column; }
     .btn-clear { width: 100%; }
+    .btn-calc { height: 56px; font-size: 16px; }
     .currency-select-wrap { flex-direction: column; align-items: flex-start; }
     .currency-select-wrap select { width: 100%; }
     .total-row-value { font-size: 22px; }
@@ -462,17 +463,25 @@
   }
 
   function clearAll() {
-    ['monthly','lumpsum'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('stepup').value  = '';
-    document.getElementById('rate').value    = 12;
-    document.getElementById('tenure').value  = 10;
+    // Clear all text/number inputs
+    document.getElementById('monthly').value  = '';
+    document.getElementById('lumpsum').value  = '';
+    document.getElementById('stepup').value   = '';
+    document.getElementById('rate').value     = '';
+    document.getElementById('tenure').value   = '';
     document.getElementById('rate-slider').value   = 12;
     document.getElementById('tenure-slider').value = 10;
+    // Hide errors
     document.getElementById('err-monthly').style.display = 'none';
     document.getElementById('err-stepup').style.display  = 'none';
-    document.getElementById('empty-state').style.display    = 'block';
+    // Reset results panel
+    document.getElementById('empty-state').style.display     = 'block';
     document.getElementById('results-content').style.display = 'none';
+    // Destroy chart
     if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
+    // Reset currency to INR
+    document.getElementById('currency').value = 'INR';
+    onCurrencyChange();
   }
 
   function calculateGoal() {
