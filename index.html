@@ -259,9 +259,9 @@
   <!-- GOAL PLANNER -->
   <div class="goal-card">
     <div class="card-title">Goal Planner</div>
-    <div class="card-subtitle">Know your target? Enter your goal amount and time horizon — we'll tell you what it takes to get there.</div>
+    <div class="card-subtitle">Know your target? Enter your goal amount and time horizon — Raaghav will tell you what it takes to get there.</div>
 
-    <div class="goal-inputs">
+    <div class="goal-inputs" style="grid-template-columns: 1fr 1fr 1fr;">
       <div class="field" style="margin:0">
         <label>Your Goal Amount</label>
         <div class="input-row">
@@ -283,10 +283,10 @@
           <span class="suffix">years</span>
         </div>
       </div>
-      <div class="btn-goal-row">
-        <button class="btn-goal" onclick="calculateGoal()">Find My Plan →</button>
-        <button class="btn-clear-goal" onclick="clearGoal()" title="Clear">✕</button>
-      </div>
+    </div>
+    <div class="btn-goal-row" style="margin-top: 16px;">
+      <button class="btn-goal" onclick="calculateGoal()">Find My Plan →</button>
+      <button class="btn-clear-goal" onclick="clearGoal()" title="Clear">✕ Clear</button>
     </div>
 
     <div class="goal-results" id="goal-results" style="display:none">
