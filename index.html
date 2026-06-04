@@ -60,7 +60,7 @@
   .btn-calc { flex: 1; height: 50px; border: none; border-radius: var(--radius-sm); background: var(--accent); color: white; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 0.02em; transition: background 0.18s, transform 0.1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .btn-calc:hover { background: #235c42; }
   .btn-calc:active { transform: scale(0.99); }
-  .btn-clear { height: 50px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--text-muted); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; padding: 0 18px; transition: all 0.18s; white-space: nowrap; }
+  .btn-clear { height: 50px; border: none; border-radius: var(--radius-sm); background: transparent; color: var(--text-muted); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; padding: 0 14px; transition: all 0.18s; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
   .btn-clear:hover { border-color: var(--danger); color: var(--danger); background: #fff5f5; }
 
   .results-col { display: flex; flex-direction: column; gap: 20px; }
@@ -130,9 +130,9 @@
     .input-row { height: auto; min-height: 50px; }
     .input-row .prefix, .input-row .suffix { height: 50px; }
     input[type="text"], input[type="number"], select { height: 50px; }
-    .btn-row { flex-direction: column; gap: 10px; }
-    .btn-calc { height: 52px; font-size: 15px; width: 100%; }
-    .btn-clear { width: 100%; height: 44px; font-size: 13px; }
+    .btn-row { flex-direction: column; gap: 6px; align-items: center; }
+    .btn-calc { height: 58px; font-size: 17px; width: 100%; border-radius: 12px; }
+    .btn-clear { width: auto; height: 36px; font-size: 12px; padding: 0 8px; }
     .currency-select-wrap { flex-direction: column; align-items: flex-start; }
     .currency-select-wrap select { width: 100%; }
     .total-row-value { font-size: 22px; }
